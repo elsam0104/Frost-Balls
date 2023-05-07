@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RingBlock
   - sand
+  - background
   layers:
   - Default
   - TransparentFX
