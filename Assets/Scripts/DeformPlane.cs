@@ -6,14 +6,17 @@ public class DeformPlane : MonoBehaviour
 {
     MeshFilter meshFilter;
     Mesh planeMesh;
+    MeshCollider meshCollider;
     Vector3[] verts;
     [SerializeField]
     float radius = 0f;
     [SerializeField]
     float power = 0f;
-    private void Start()
+
+    private void Awake()
     {
         meshFilter = GetComponent<MeshFilter>();
+        meshCollider = GetComponent<MeshCollider>();
         planeMesh = meshFilter.mesh;
         verts = planeMesh.vertices;
     }
@@ -22,13 +25,14 @@ public class DeformPlane : MonoBehaviour
         posToDeform = transform.InverseTransformPoint(posToDeform);
         for (int i = 0; i < verts.Length; i++)
         {
-            float dist = (verts[i]-posToDeform).sqrMagnitude;
+            float dist = (verts[i] - posToDeform).sqrMagnitude;
 
-            if(dist <radius)
+            if (dist < radius)
             {
                 verts[i] -= Vector3.up * power;
             }
         }
         planeMesh.vertices = verts;
+        meshCollider.sharedMesh = planeMesh;
     }
 }

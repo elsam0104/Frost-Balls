@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RayCam : MonoBehaviour
@@ -13,6 +14,9 @@ public class RayCam : MonoBehaviour
     Transform ringPrefab;
     [SerializeField]
     DeformPlane plane;
+
+    Vector3 lastPos;
+
     private void Start()
     {
         cam = transform.GetComponent<Camera>();
@@ -26,17 +30,27 @@ public class RayCam : MonoBehaviour
     }
     private void DeformMesh()
     {
+        if ((lastPos - Input.mousePosition).sqrMagnitude <= 2) return;
         ray = cam.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out Hit))
         {
+            if (Hit.collider.tag == "Background")
+                return;
             //deform mesh
+            Collider[] colliders = Physics.OverlapSphere(Hit.point, 5f);
+            Collider deformCol = colliders.FirstOrDefault(collider => collider.GetComponent<DeformPlane>() != null);
             //DeformPlane deformPlane = Hit.transform.GetComponent<DeformPlane>();
-            if (Hit.collider.tag == "sand")
+            Vector3 hitPoint = new Vector3(Hit.point.x, Hit.point.y, 0);
+            deformCol?.GetComponent<DeformPlane>().DeformMesh(hitPoint);
+            Instantiate(ringPrefab, new Vector3(Hit.point.x, Hit.point.y, 0.066f), Quaternion.Euler(-90f, 0f, 0f));
+
+            if (Hit.collider.tag == "RingBlock")
             {
-                plane.DeformMesh(Hit.point);
-                Instantiate(ringPrefab, new Vector3(Hit.point.x, Hit.point.y, Hit.point.z + 0.066f), Quaternion.Euler(-90f, 0f, 0f));
+                Destroy(Hit.collider.gameObject);
             }
         }
+
+        lastPos = Input.mousePosition;
     }
 }
