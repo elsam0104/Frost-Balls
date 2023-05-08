@@ -18,4 +18,11 @@ public class RingScript : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "background" || other.tag == "sand")
+        { 
+            Destroy(other.gameObject); 
+        }
+    }
 }

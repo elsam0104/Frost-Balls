@@ -41,9 +41,12 @@ public class RayCam : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(Hit.point, 5f);
             Collider deformCol = colliders.FirstOrDefault(collider => collider.GetComponent<DeformPlane>() != null);
             //DeformPlane deformPlane = Hit.transform.GetComponent<DeformPlane>();
-            Vector3 hitPoint = new Vector3(Hit.point.x, Hit.point.y, 0);
-            deformCol?.GetComponent<DeformPlane>().DeformMesh(hitPoint);
-            Instantiate(ringPrefab, new Vector3(Hit.point.x, Hit.point.y, 0.066f), Quaternion.Euler(-90f, 0f, 0f));
+            if (deformCol != null)
+            {
+                Vector3 hitPoint = new Vector3(Hit.point.x, Hit.point.y, 0);
+                deformCol?.GetComponent<DeformPlane>().DeformMesh(hitPoint);
+                Instantiate(ringPrefab, new Vector3(Hit.point.x, Hit.point.y, 0.066f), Quaternion.Euler(-90f, 0f, 0f));
+            }
 
             if (Hit.collider.tag == "RingBlock")
             {
