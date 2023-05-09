@@ -53,6 +53,8 @@ MonoBehaviour:
   - {r: 0.37254906, g: 0.5375238, b: 1, a: 1}
   - {r: 1, g: 0.9351259, b: 0.39599997, a: 1}
   - {r: 0.35400003, g: 1, b: 0.38079014, a: 1}
+  isTagged: 0
+  ringPrefab: {fileID: 3692190543518771397, guid: ac36f9c334bde644f902d44f0095e916, type: 3}
 --- !u!33 &7619243323668583582
 MeshFilter:
   m_ObjectHideFlags: 0
