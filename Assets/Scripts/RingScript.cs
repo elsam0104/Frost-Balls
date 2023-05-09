@@ -6,7 +6,6 @@ public class RingScript : MonoBehaviour
 {
     [SerializeField]
     MeshCollider[] m_Colliders;
-
     private void Start()
     {
         foreach (var collider in m_Colliders) { collider.enabled = true; }
@@ -18,4 +17,5 @@ public class RingScript : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
 }
