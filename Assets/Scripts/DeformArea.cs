@@ -20,4 +20,13 @@ public class DeformArea : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, radius);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        print(other.name);
+        if (other.tag == "RingBlock")
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
 }

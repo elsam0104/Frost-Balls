@@ -45,10 +45,10 @@ public class RayCam : MonoBehaviour
             {
                 Vector3 hitPoint = new Vector3(Hit.point.x, Hit.point.y, 0);
                 deformCol?.GetComponent<DeformPlane>().DeformMesh(hitPoint);
+            //if (Hit.collider.tag != "RingBlock")
                 //Instantiate(ringPrefab, new Vector3(Hit.point.x, Hit.point.y, 0.066f), Quaternion.Euler(-90f, 0f, 0f));
             }
 
-            //if (Hit.collider.tag == "RingBlock")
             //{
             //    Destroy(Hit.collider.gameObject);
             //}

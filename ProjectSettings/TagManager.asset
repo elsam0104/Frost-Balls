@@ -8,6 +8,7 @@ TagManager:
   - sand
   - background
   - Ball
+  - deformArea
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,8 @@ public class Ball : MonoBehaviour
     List<Color> colors = new List<Color>();
     [SerializeField]
     bool isTagged = false;
-
+    [SerializeField]
+    GameDataSO gameData;
     MeshRenderer mesh;
     Color taggedColor = Color.blue;
 
@@ -18,13 +19,15 @@ public class Ball : MonoBehaviour
     {
         mesh = GetComponent<MeshRenderer>();
         taggedColor = colors[Random.Range(0, colors.Count)];
+        if (isTagged)
+            ChangeColor(this);
     }
     private void ChangeColor(Ball target)
     {
         target.isTagged = true;
         target.mesh.material.color = target.taggedColor;
     }
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Ball"))
         {
@@ -36,6 +39,7 @@ public class Ball : MonoBehaviour
             else if (otherBall.IsTagged)
             {
                 ChangeColor(this);
+                //gameData.haveBall++;
             }
         }
     }

@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7317881855341762116}
   - component: {fileID: 6148671051922119293}
+  - component: {fileID: 8159991197976901284}
   m_Layer: 0
   m_Name: DeformBallArea
-  m_TagString: Untagged
+  m_TagString: deformArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,5 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d680e03dded8b4840bd5c3badc08f502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
+  radius: 1
   ringPrefab: {fileID: 3692190543518771397, guid: ac36f9c334bde644f902d44f0095e916, type: 3}
+--- !u!136 &8159991197976901284
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742857075698302886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
