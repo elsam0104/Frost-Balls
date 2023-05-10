@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72022f70645ba1149b54e06db4618f2b, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  haveBall: 1
+  haveBall: 6

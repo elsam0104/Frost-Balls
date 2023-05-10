@@ -32,15 +32,15 @@ public class Ball : MonoBehaviour
         if (collision.collider.CompareTag("Ball"))
         {
             Ball otherBall = collision.gameObject.GetComponent<Ball>();
-            if (isTagged)
+            if (isTagged&&!otherBall.isTagged)
             {
                 ChangeColor(otherBall);
+                gameData.haveBall++;
             }
-            else if (otherBall.IsTagged)
-            {
-                ChangeColor(this);
-                //gameData.haveBall++;
-            }
+            //else if (otherBall.isTagged)
+            //{
+            //    ChangeColor(this);
+            //}
         }
     }
 }

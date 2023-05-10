@@ -22,7 +22,6 @@ public class DeformArea : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        print(other.name);
         if (other.tag == "RingBlock")
         {
             Destroy(other.gameObject);
