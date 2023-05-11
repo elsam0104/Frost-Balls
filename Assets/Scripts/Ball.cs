@@ -15,7 +15,7 @@ public class Ball : MonoBehaviour
     Color taggedColor = Color.blue;
 
     public bool IsTagged { get { return isTagged; } set { isTagged = value; } }
-    private void Start()
+    private void Awake()
     {
         mesh = GetComponent<MeshRenderer>();
         taggedColor = colors[Random.Range(0, colors.Count)];
@@ -26,21 +26,18 @@ public class Ball : MonoBehaviour
     {
         target.isTagged = true;
         target.mesh.material.color = target.taggedColor;
+        BallManager.instance.AddTaggedBall(target);
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Ball"))
         {
             Ball otherBall = collision.gameObject.GetComponent<Ball>();
-            if (isTagged&&!otherBall.isTagged)
+            if (isTagged && !otherBall.isTagged)
             {
                 ChangeColor(otherBall);
                 gameData.haveBall++;
             }
-            //else if (otherBall.isTagged)
-            //{
-            //    ChangeColor(this);
-            //}
         }
     }
 }
