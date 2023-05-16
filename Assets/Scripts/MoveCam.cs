@@ -22,7 +22,6 @@ public class MoveCam : MonoBehaviour
     }
     private void Update()
     {
-        print($"endpos{endPos.y} newpos {BallManager.instance.GetTransform().position.y}  {Mathf.Abs(endPos.y - BallManager.instance.GetTransform().position.y)}");
         if (Mathf.Abs(endPos.y - BallManager.instance.GetTransform().position.y) >= 1f) // 기존 endpos와 크기 차이가 10이상 나면 카메라 이동
         {
             curTime = 0f;

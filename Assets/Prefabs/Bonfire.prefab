@@ -27,17 +27,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7686988359663380102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7.32}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: -1.3640001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7686988360817121693}
-  m_Father: {fileID: 9132934661229562418}
-  m_RootOrder: 2
+  m_Father: {fileID: 7686988360771266008}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 7.76}
+  m_AnchoredPosition: {x: 0, y: 0.3520012}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7686988359663380098
@@ -111,6 +111,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7686988360771266008}
   - component: {fileID: 7686988360771266009}
+  - component: {fileID: 1773904242844937574}
+  - component: {fileID: 5661598748701039976}
   m_Layer: 0
   m_Name: Bonfire
   m_TagString: Untagged
@@ -130,6 +132,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7686988359663380103}
   - {fileID: 9132934661229562418}
   - {fileID: 1090994713595270199}
   m_Father: {fileID: 0}
@@ -148,6 +151,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1773904242844937574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686988360771266015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 926ccf066202d04459ca81040163bff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyObj: {fileID: 8385961304936555008}
+--- !u!114 &5661598748701039976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686988360771266015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064a2256fb9b03e439c810d840215937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  calculateText: {fileID: 7686988360817121694}
+  calculateNum: 2
+  calculateMode: 0
+  ballPrefab: {fileID: 7619243323668583586, guid: d24cc569337eb7049b9ab2e700d6079f, type: 3}
 --- !u!1 &7686988360817121692
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +324,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1446526844107249175, guid: 8c24f4efc20ae488386410c07ba7ec0c, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1446526844107249175, guid: 8c24f4efc20ae488386410c07ba7ec0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -338,8 +370,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonfire_B_Small_Fire
       objectReference: {fileID: 0}
+    - target: {fileID: 2219500903613775397, guid: 8c24f4efc20ae488386410c07ba7ec0c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c24f4efc20ae488386410c07ba7ec0c, type: 3}
+--- !u!1 &8385961304936555008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2219500903613775397, guid: 8c24f4efc20ae488386410c07ba7ec0c, type: 3}
+  m_PrefabInstance: {fileID: 7686988360336055333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9132934661229562418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1446526844107249175, guid: 8c24f4efc20ae488386410c07ba7ec0c, type: 3}
@@ -362,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7317881855341762116, guid: 7394cceb30efa0044a1f7e9fd08f136c, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7317881855341762116, guid: 7394cceb30efa0044a1f7e9fd08f136c, type: 3}
       propertyPath: m_LocalPosition.x

@@ -4,6 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 public class DieAnim : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject destroyObj;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Ball"))
@@ -11,6 +13,6 @@ public class DieAnim : MonoBehaviour
     }
     public void DestroyAnim()
     {
-        gameObject.transform.DOScale(0, 1).OnComplete(() => { Destroy(gameObject); }).SetEase(Ease.InCubic);
+        destroyObj.transform.transform.DOScale(0, 1).OnComplete(() => { Destroy(destroyObj.gameObject); }).SetEase(Ease.InCubic);
     }
 }
